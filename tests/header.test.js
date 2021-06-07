@@ -32,7 +32,7 @@ test("When signed in,Shows logout button ", async () => {
   const { session, sig } = sessionFactory(user);
   await page.setCookie({ name: "session", value: session });
   await page.setCookie({ name: "session.sig", value: sig });
-  await page.goto("http://localhost:3000");
+  await page.goto("http://localhost:3000/");
   await page.waitFor("a[href='/auth/logout']");
   const text = await page.$eval("a[href='/auth/logout']", (el) => el.innerHTML);
 
